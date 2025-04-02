@@ -9,6 +9,14 @@ export const createPost = async (req, res) => {
                 userId: parseInt(user.id),
                 title: title,
                 content: content
+            }, 
+            select: {
+                id: true,
+                title: true,
+                content: true,
+                created_at: true,
+                updated_at: true,
+                comment_count: true
             }
         });
         res.status(201).json({
