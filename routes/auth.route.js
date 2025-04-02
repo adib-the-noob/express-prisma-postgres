@@ -3,10 +3,7 @@ import {
     updateUser,
     fetchAllUsers
 } from "../controllers/user.controller.js";
-import { 
-    userRegistration,
-    userLogin
-} from "../controllers/auth.controller.js";
+import { userRegistration, userLogin } from "../controllers/auth.controller.js";
 import { getCurrentUser } from "../middlewares/auth.middleware.js";
 import { Router } from "express";
 

@@ -33,7 +33,7 @@ model Post {
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
-  comment_count BigInt @default(0)
+  comment_count Int @default(0)
   comments Comment[]
 }
 
