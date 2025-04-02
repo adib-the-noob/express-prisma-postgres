@@ -33,3 +33,32 @@ export const createPost = async (req, res) => {
         })
     }
 }
+
+export const countTotalPost = async (req, res) => {
+    try {
+        const user = req.user;
+        const totalPosts = await prisma.post.findMany({
+            where: {
+                userId: parseInt(user.id)
+            },
+            select: {
+                id: true
+            }
+        }).then(posts => {
+            return posts.length;
+        });
+        res.status(200).json({
+            status: "success",
+            message: "Fetched",
+            data: {
+                total_posts: totalPosts
+            }
+        })
+    } catch (error) {
+        res.status(501).json({
+            status: "Failed",
+            message: error.message,
+            data: {}
+        })
+    }
+}
